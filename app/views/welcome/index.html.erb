@@ -1,51 +1,35 @@
 <!DOCTYPE>
-<html>
-<head>
-  <script>
-  // $(document).ready(function(){
-  //   $('button').click(function(){
-  //     var url = 'https://api.instagram.com/v1/media/popular?client_id=4904d8f0e3ab48a8bb7c129418dac91a'
-  //     $.getJSON(url, function(response){
-  //       var photoHTML = '<ul>';
-  //       $.each(response.data, function(i, photo){
-  //         photoHTML += '<li class="list-image">';
-  //         photoHTML += '<a class="image" href="' + photo.link + '">';
-  //         photoHTML += '<img src="' + photo.images.low_resolution.url + '"></a></li>';
-  //       });
-  //       photoHTML += '</ul>';
-  //       $('#photos').html(photoHTML);
-  //     });
-  //   });
-  // });
-  // </script>
-</head>
-
 <body>
 
-
-<h1>Welcome to index world.</h1>
-<p>A world of indexes...</p>
-<button>Photos</button>
-<div id="photos">
-  <ul>
-    <li class="list-image">
-      <a class="image" href="">
-      <img src="">
-      </a>
-    </li>
-  </ul>
-</div>
+<h1>H#SH CA$H:</h1>
+<p>Lorem ipsum dolar...</p>
 
 <div>
   <li><%= link_to 'Sign Up', new_user_registration_path %></li>
   <li><%= link_to 'Log In', new_user_session_path %></li>
-  <li><a href="https://api.instagram.com/oauth/authorize/?client_id=4904d8f0e3ab48a8bb7c129418dac91a&redirect_uri=https://calm-reaches-7359.herokuapp.com/&response_type=code">Sign in with Instagram</a></li>
+
+  <!-- curently work to get redirect to localhost -->
+
+  <li><a href="https://api.instagram.com/oauth/authorize/?client_id=4904d8f0e3ab48a8bb7c129418dac91a&redirect_uri=http://localhost:3000&response_type=code">Sign in with Instagram</a></li>
+
+   <!-- TO DO:
+    # route to new address, e.g. http://localhost:3000/auth/user/#{user.id}
+    # through that process, scrape URL for access token
+    # AJAX request for JSON to api from authenticated user with token
+    # parse lattitude / longitude of photos in specific area and save
+-->
+
+  <!-- below not working / rails link_to -->
+  <p><b>Don't use:</b></p>
+  <ul>
+    <li style="color: red;"><%= link_to "Sign in with Instagram", user_omniauth_authorize_path(:instagram), :style => "color: red;" %>
+    </li>
+  </ul>
 </div>
 
 <% if user_signed_in? %>
+  <p>This is fine to log out with:</p>
   <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
 <% end %>
 
 </body>
-
-</html>
