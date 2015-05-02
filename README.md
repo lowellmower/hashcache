@@ -10,7 +10,7 @@
 *Build test in rspec*
 ##### - Accesing instagram API and parsing long/lat information
 ============================================
----
+
 # To Do:
 ```
 # Integrate google map api
@@ -21,4 +21,3 @@
 # Build out MVP style
 # ...eat pizza
 ```
----
