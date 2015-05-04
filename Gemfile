@@ -20,6 +20,10 @@ gem 'httparty'
 gem 'instagram'
 gem 'devise'
 gem 'omniauth-instagram'
+gem 'haml-rails'
+gem 'bourbon'
+gem 'neat'
+gem 'instagram'
 
 
 group :development do
