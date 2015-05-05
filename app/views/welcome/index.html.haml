@@ -1,0 +1,70 @@
+%header.navigation{role: "banner"}
+  .navigation-wrapper
+    %a.logo{href: "#"}
+      %img{src: "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" }
+    %a.navigation-menu-button{id: 'js-mobile-menu', href: '#'} Menu
+    %nav{role: 'navigation'}
+      %ul.navigation-menu.show{id:'js-navigation-menu'}
+        %li.nav-link
+          = link_to 'Home', root_path
+        %li.nav-link
+          %a{href: '#'} About Us
+        %li.nav-link
+          %a{href: '#'} Contact
+        %li.nav-link.more
+          %a{href: "#"} More
+          %ul.submenu
+            %li
+              %a{href: '#'} Submenu Item
+            %li
+              %a{href: '#'} Another Item
+            %li.more
+              %a{href:'#'} Item with submenu
+              %ul.submenu
+                %li
+                  %a{href:'#'} Sub-submenu Item
+                %li
+                  %a{href:'#'} Another Item
+            %li.more
+              %a{href:'#'} Another submenu
+              %ul.submenu
+                %li
+                  %a{href:'#'} Sub-submenu Item
+                %li
+                  %a{href:'#'} Another Item
+    .navigation-tools
+      .search-bar
+        %form{role: 'search'}
+          %input{type: 'search', placeholder: 'Enter search'}
+          %button{type: 'submit'}
+            %img{src: 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png'}
+      - if user_signed_in?
+        %li.sign-up
+          = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'sign-up'
+        %li.sign-up
+          = link_to 'Account', edit_user_registration_path, class: 'sign-up'
+      - else
+        %li.sign-up
+          = link_to 'Sign up', new_user_registration_path, class: 'sign-up'
+        %li.sign-up
+          = link_to 'Sign in', new_user_session_path, class: 'sign-up'
+
+.container
+  .line-holder
+    .line-bottom
+      %h1.page-title Instagram Locator
+
+%ul.accordion-tabs
+  %li.tab-header-and-content
+    %a{href:"#", class: 'is-active tab-link'} My Instagram Photo Locator
+    .tab-content
+      %input{type: 'text area', placeholder: 'my instagram username'}
+      %button{type: 'submit'} My photos
+      .pics
+
+  %li.tab-header-and-content
+    %a{href:"#", class: 'tab-link'} Instagram Photos by Location
+    .tab-content
+      %input{type: 'text area', placeholder: 'location', id: 'location-field'}
+      %button{type: 'submit', id: 'location-photos'} Get photos
+      .location-pics
